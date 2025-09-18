@@ -1,0 +1,217 @@
+td{text-align: center;padding:20px;}
+
+.font1{font-size: 36px;}
+.font2{font-size: 48px;}
+.font2:hover{ font-size: 52px; background-color: black; color: white}
+.font3{font-size: 20px;}
+.font3:hover{ font-size: 24px; background-color: black; color: white}
+
+.container{margin: 0 auto;max-width: 1024px;width: 100%;}
+
+.round_img1{border-radius: 50px;}
+.round_img1:hover{opacity: 80%}
+/* .round_img2{border-radius: 50%;width: 300px;height: 300px} */
+.round_img2:hover{
+    /* opacity: 80%;rotate:-5deg; */
+    transform: scale(1.1);
+    transition: transform 0.5s ease;
+}
+
+.navbar {
+    overflow: visible;
+    background-color: #333;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    }
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px
+    }
+
+.navbar a:hover {
+    background: #ddd;
+    color: black;
+    }
+
+/* 下拉容器 */
+.dropdown {
+  float: left;
+  position: relative; /* 🔑 讓子元素 absolute 定位基於這個父元素 */
+  /* overflow: hidden; */
+}
+
+/* 下拉按鈕樣式 */
+.dropbtn {
+  font-size: 17px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit; /* 繼承 navbar 顏色 */
+  font-family: inherit; 
+  margin: 0;
+}
+
+/* 下拉選單內容 */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;   /* 貼齊父元素底部 */
+  left: 0;
+  background-color: #333;
+  min-width: 160px;
+  z-index: 999;
+}
+
+/* 下拉選單裡的項目 */
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* hover 效果 */
+.dropdown-content a:hover {
+  background-color: #575757;
+}
+
+/* 滑過顯示下拉 */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.info-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 20px;
+  border-top: 2px solid #ddd;
+  margin-top: 40px;
+}
+
+.info-left {
+  flex: 1;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.info-left .open {
+  color: green;
+  font-weight: bold;
+}
+
+.info-left .btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: 2px solid black;
+  border-radius: 8px;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.info-left .btn:hover {
+  background: black;
+  color: white;
+}
+
+.info-right {
+  flex: 1;
+}
+
+.hours-list {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 15px 0;
+  font-family: "Microsoft JhengHei", sans-serif;
+}
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+  border-bottom: 1px solid #eee;
+}
+.day {
+  font-weight: bold;
+}
+.closed {
+  color: red;
+}
+
+@media (max-width: 768px) {
+  /* 讓 table 內部改為區塊排列 */
+  table.container, 
+  table.container tr, 
+  table.container td {
+    display: block;
+    width: 100%;
+  }
+
+  /* 文字置中 & 留點間距 */
+  td {
+    text-align: center;
+    padding: 10px;
+  }
+
+  /* 圖片改為自適應寬度 */
+  .round_img1 {
+    width: 100% !important;
+    height: auto !important;
+  }
+  .round_img2 {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 400px;
+    border-radius: 15px; /* 改小一點，避免在手機看起來太奇怪 */
+  }
+
+  /* ===== 針對交錯圖文區塊 (圖片 ↔ 文字) ===== */
+  tr td:first-child img {
+    order: -1; /* 讓圖片排到文字上方 */
+  }
+
+  /* Info 區塊改成直式 */
+  .info-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-left, .info-right {
+    width: 100%;
+  }
+
+  .info-right iframe {
+    width: 100%;
+    height: 300px; /* 手機高度縮小一點 */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .round_img1 {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .round_img2 {
+    width: 80% !important;
+    height: auto !important;
+  }
+
+  .info-right iframe {
+    width: 100%;
+    height: 400px;
+  }
+}

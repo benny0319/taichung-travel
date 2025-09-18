@@ -1,0 +1,162 @@
+td{
+  text-align: center;
+  padding:20px;
+}
+
+.font1{font-size: 36px;}
+.font2{font-size: 28px;}
+.font2:hover{ font-size: 32px; background-color: black; color: white}
+.font3{font-size: 20px;}
+.font3:hover{ font-size: 24px; background-color: black; color: white}
+
+.container {
+  margin: 0 auto;
+  max-width: 1024px;
+  width: 100%;
+  padding-top: 70px; /* 避免被固定的 navbar 蓋住 */
+}
+
+.round_img1{border-radius: 50px;}
+.round_img1:hover{opacity: 0.8}
+.round_img2{border-radius: 50%;width: 300px;height: 300px}
+.round_img2:hover{opacity: 0.8;rotate:-5deg;}
+
+
+.navbar {
+    overflow: visible;
+    background-color: #333;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    z-index: 1000;
+    }
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    }
+
+.navbar a:hover {
+    background: #ddd;
+    color: black;
+    }
+
+/* 下拉容器 */
+.dropdown {
+  float: left;
+  position: relative; /* 🔑 讓子元素 absolute 定位基於這個父元素 */
+  /* overflow: hidden; */
+}
+
+/* 下拉按鈕樣式 */
+.dropbtn {
+  font-size: 17px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit; /* 繼承 navbar 顏色 */
+  font-family: inherit; 
+  margin: 0;
+}
+
+/* 下拉選單內容 */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;   /* 貼齊父元素底部 */
+  left: 0;
+  background-color: #333;
+  min-width: 160px;
+  z-index: 999;
+}
+
+/* 下拉選單裡的項目 */
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* hover 效果 */
+.dropdown-content a:hover {
+  background-color: #575757;
+}
+
+/* 滑過顯示下拉 */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* 預設順序：文字在左，圖片在右 */
+.spot-text { order: 1; }
+.spot-img { order: 2; }
+
+/* ========= 響應式設計 ========= */
+
+/* 讓主要容器隨螢幕縮放，而不是固定 1024px */
+/* 平板以下：調整圖片、字體大小 */
+@media (max-width: 1024px) {
+  .round_img2 {
+    width: 250px;
+    height: 250px;
+  }
+  .font2 { font-size: 24px; }
+  .font3 { font-size: 18px; }
+}
+
+/* 手機版：改成單欄、navbar 變直式 */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  td {
+    display: block;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .round_img1 {
+    width: 100%;
+    height: auto;
+  }
+
+  .round_img2 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .font2 { font-size: 20px; }
+  .font3 { font-size: 16px; }
+
+  /* Navbar 改為直式 */
+  .navbar a, .dropbtn {
+    float: none;
+    display: block;
+    text-align: left;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .dropdown-content {
+    position: static; /* 改為正常流，不要浮空 */
+  }
+  .spot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .spot-text { order: 2; }
+  .spot-img { order: 1; }
+}
